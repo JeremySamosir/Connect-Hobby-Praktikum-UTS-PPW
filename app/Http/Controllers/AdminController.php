@@ -7,14 +7,15 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
+
+    // membuat function untuk menampilkan halaman beranda
     function musik(){
-        
+    
         return view('beranda');
     
     }
 
     function lukis(){
-
     return view('beranda');
 
     }
