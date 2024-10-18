@@ -42,8 +42,6 @@ class LoginController extends Controller
         
         if(Auth::attempt($infologin)){
             $user = Auth::user();
-            // dd(Auth::user()->role);
-            // Redirect based on user role
             if ($user->hobby == 'musik') {
                 return redirect()->route('musik');
             } elseif ($user->hobby == 'tari') {
