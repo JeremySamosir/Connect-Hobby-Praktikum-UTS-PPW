@@ -7,7 +7,19 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    function index()
+    function musik()
+    {
+        return view('login');
+
+    }
+
+    function lukis()
+    {
+        return view('login');
+
+    }
+
+    function tari()
     {
         return view('login');
 
@@ -29,12 +41,19 @@ class LoginController extends Controller
         ];
         
         if(Auth::attempt($infologin)){
-            return redirect('admin');
-        }else{
+            $user = Auth::user();
+            // dd(Auth::user()->role);
+            // Redirect based on user role
+            if ($user->hobby == 'musik') {
+                return redirect()->route('musik');
+            } elseif ($user->hobby == 'tari') {
+                return redirect()->route('tari');
+            } elseif ($user->hobby == 'lukis') {
+                return redirect()->route('lukis');
+            }
+        } else {
             return redirect('')->withErrors('Username dan password yang dimasukkan tidak sesuai')->withInput();
-
         }
-        
     }
 
     function logout(){

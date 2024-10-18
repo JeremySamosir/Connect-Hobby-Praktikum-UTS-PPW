@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            // $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('role',['mahasiswa','admin'])->default('admin');
-            $table->rememberToken();
+            $table->enum('hobby',['musik','tari','lukis']);
+            // $table->rememberToken();
             $table->timestamps();
         });
 
@@ -39,7 +39,7 @@ return new class extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the migrations/rollback.
      */
     public function down(): void
     {
